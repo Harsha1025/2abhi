@@ -11,6 +11,7 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            transition: background-color 0.3s ease;
         }
 
         .sidebar {
@@ -20,11 +21,34 @@
             color: white;
             padding: 20px;
             box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
         }
 
         .sidebar-header h2 {
             color: #ecf0f1;
-            margin-bottom: 30px;
+            margin: 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #ecf0f1;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .nav-list {
@@ -35,26 +59,53 @@
         .nav-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 12px;
             text-decoration: none;
             color: #ecf0f1;
             font-size: 18px;
             border-radius: 8px;
+            margin: 4px 0;
+            transition: all 0.3s ease;
         }
 
         .nav-item:hover {
             background-color: #34495e;
+            transform: translateX(8px);
         }
 
         .icon {
             margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         select {
             background-color: #34495e;
             color: white;
             border: none;
-            padding: 5px;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #1a1a1a;
+        }
+
+        .dark-mode .nav-item:hover {
+            background-color: #2d2d2d;
+        }
+
+        .dark-mode select {
+            background-color: #2d2d2d;
+        }
+
+        .dark-mode .theme-toggle {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -62,8 +113,10 @@
     <nav id="sidebar" class="sidebar">
         <div class="sidebar-header">
             <h2>LearnSphere</h2>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
         </div>
         <ul class="nav-list">
+            <!-- Your existing navigation items here -->
             <li><a href="1chat.html" class="nav-item" title="AI Tutor Bots"><span class="icon">🤖</span><span class="nav-text">AI Tutor Bots</span></a></li>
             <li><a href="multilingual.html" class="nav-item" title="Multilingual Resources"><span class="icon">🌐</span><span class="nav-text">Multilingual Resources</span></a></li>
             <li>
@@ -78,10 +131,35 @@
                 </label>
             </li>
             <li><a href="quiz.html" class="nav-item" title="Quizzes & Leaderboards"><span class="icon">📝</span><span class="nav-text">Quizzes</span></a></li>
-          
+            <li><a href="ecommerce.html" class="nav-item" title="ecommerce"><span class="nav-text">ecommerce</span></a></li>
+         
             <li><a href="https://www.youtube.com" target="_blank" class="nav-item" title="YouTube"><span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width:30%; height:40px; vertical-align:middle;"></span><span class="nav-text">YouTube</span></a></li>
             <li><a href="https://www.google.com" target="_blank" class="nav-item" title="Google"><span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="width:30px; height:40px; vertical-align:middle;"></span><span class="nav-text">Google</span></a></li>
         </ul>
     </nav>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        // Check for saved theme in localStorage
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            sidebar.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('dark-mode');
+            
+            if (sidebar.classList.contains('dark-mode')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
