@@ -1,0 +1,471 @@
+/* Reset and base styles */
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #333;
+    --sidebar-bg-color: #2c3e50;
+    --sidebar-text-color: #ecf0f1;
+    --sidebar-header-bg-color: #1a252f;
+    --sidebar-hover-bg-color: #34495e;
+    --icon-bg-color: #34495e;
+    --chatbot-bg-color: #fff;
+    --chatbot-user-bg-color: #3498db;
+    --chatbot-user-text-color: white;
+    --chatbot-bot-bg-color: #ecf0f1;
+    --chatbot-bot-text-color: #333;
+    --timer-bg-color: #fff;
+    --timer-button-bg-color: #3498db;
+    --timer-button-hover-bg-color: #2980b9;
+    --timer-button-disabled-bg-color: #95a5a6;
+    --ecommerce-bg-color: #fff;
+    --product-item-bg-color: #fafafa;
+    --cart-item-border-color: #eee;
+    --checkout-btn-bg-color: #27ae60;
+    --checkout-btn-hover-bg-color: #219150;
+    --learning-resources-bg-color: #fff;
+    --dashboard-bg-color: #fff;
+    --task-form-border-color: #ccc;
+    --task-list-border-color: #eee;
+    --quiz-bg-color: #fff;
+    --quiz-option-bg-color: white;
+    --quiz-option-border-color: #3498db;
+    --quiz-option-hover-bg-color: #ecf0f1;
+    --leaderboard-bg-color: #fff;
+    --projects-bg-color: #fff;
+    --resource-form-border-color: #ccc;
+}
+
+.dark-mode {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --sidebar-bg-color: #000000;
+    --sidebar-text-color: #ffffff;
+    --sidebar-header-bg-color: #000000;
+    --sidebar-hover-bg-color: #222222;
+    --icon-bg-color: #222222;
+    --chatbot-bg-color: #000000;
+    --chatbot-user-bg-color: #ffffff;
+    --chatbot-user-text-color: #000000;
+    --chatbot-bot-bg-color: #222222;
+    --chatbot-bot-text-color: #ffffff;
+    --timer-bg-color: #000000;
+    --timer-button-bg-color: #ffffff;
+    --timer-button-hover-bg-color: #dddddd;
+    --timer-button-disabled-bg-color: #555555;
+    --ecommerce-bg-color: #000000;
+    --product-item-bg-color: #111111;
+    --cart-item-border-color: #444444;
+    --checkout-btn-bg-color: #ffffff;
+    --checkout-btn-hover-bg-color: #dddddd;
+    --learning-resources-bg-color: #000000;
+    --dashboard-bg-color: #000000;
+    --task-form-border-color: #444444;
+    --task-list-border-color: #444444;
+    --quiz-bg-color: #000000;
+    --quiz-option-bg-color: #111111;
+    --quiz-option-border-color: #ffffff;
+    --quiz-option-hover-bg-color: #222222;
+    --leaderboard-bg-color: #000000;
+    --projects-bg-color: #000000;
+    --resource-form-border-color: #444444;
+}
+
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: var(--sidebar-bg-color);
+    color: var(--sidebar-text-color);
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--sidebar-header-bg-color);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: var(--sidebar-text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 1rem 0;
+    flex-grow: 1;
+}
+
+.nav-list li {
+    margin: 0.5rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    color: var(--sidebar-text-color);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item:focus {
+    background-color: var(--sidebar-hover-bg-color);
+}
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--icon-bg-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Main content styles */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Chatbot styles */
+.chatbot-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    background-color: var(--chatbot-bg-color);
+}
+
+.chat-window {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.chat-message {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background-color: var(--chatbot-user-bg-color);
+    color: var(--chatbot-user-text-color);
+    align-self: flex-end;
+}
+
+.chat-message.bot {
+    background-color: var(--chatbot-bot-bg-color);
+    color: var(--chatbot-bot-text-color);
+    align-self: flex-start;
+}
+
+.chat-form {
+    display: flex;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.chat-form input[type="text"] {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.chat-form button {
+    background-color: var(--chatbot-user-bg-color);
+    border: none;
+    color: var(--chatbot-user-text-color);
+    padding: 0 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-form button:hover {
+    background-color: var(--timer-button-hover-bg-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        transform: translateY(-100%);
+        position: absolute;
+        z-index: 1000;
+    }
+    .sidebar.active {
+        transform: translateY(0);
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* Study timer styles */
+.timer-container {
+    background-color: var(--timer-bg-color);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 300px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
+.timer-controls button {
+    background-color: var(--timer-button-bg-color);
+    border: none;
+    color: var(--chatbot-user-text-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.timer-controls button:disabled {
+    background-color: var(--timer-button-disabled-bg-color);
+    cursor: not-allowed;
+}
+
+.timer-controls button:hover:not(:disabled) {
+    background-color: var(--timer-button-hover-bg-color);
+}
+
+/* Learning resources styles */
+.learning-resources {
+    background-color: var(--learning-resources-bg-color);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+.grade-list, .course-list {
+    list-style: disc inside;
+    margin-bottom: 1rem;
+}
+
+.grade-list li, .course-list li {
+    margin: 0.25rem 0;
+}
+
+/* Dashboard & Smart Reminders styles */
+.dashboard-container {
+    background-color: var(--dashboard-bg-color);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+.task-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"] {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--task-form-border-color);
+}
+
+.task-form button {
+    padding: 0.5rem 1rem;
+    background-color: var(--timer-button-bg-color);
+    color: var(--chatbot-user-text-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-form button:hover {
+    background-color: var(--timer-button-hover-bg-color);
+}
+
+.task-list {
+    list-style: none;
+    padding-left: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--task-list-border-color);
+}
+
+.task-list li.completed {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+.task-list button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+/* Quizzes & Leaderboards styles */
+.quiz-container {
+    background-color: var(--quiz-bg-color);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.quiz-options {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.quiz-options li {
+    margin-bottom: 0.5rem;
+}
+
+.quiz-options button {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--quiz-option-border-color);
+    border-radius: 8px;
+    background-color: var(--quiz-option-bg-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-options button:hover {
+    background-color: var(--quiz-option-hover-bg-color);
+}
+
+.quiz-options button.selected {
+    background-color: var(--timer-button-bg-color);
+    color: var(--chatbot-user-text-color);
+}
+
+#next-question-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--timer-button-bg-color);
+    color: var(--chatbot-user-text-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-question-btn:disabled {
+    background-color: var(--timer-button-disabled-bg-color);
+    cursor: not-allowed;
+}
+
+#next-question-btn:hover:not(:disabled) {
+    background-color: var(--timer-button-hover-bg-color);
+}
+
+.quiz-result {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Leaderboard styles */
+.leaderboard-container {
+    background-color: var(--leaderboard-bg-color);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+.leaderboard-list {
+    padding-left: 1.2rem;
+}
+
+.leaderboard-list li {
+    margin-bottom: 0.5rem;
+}
+
+
+ 
